@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<item value="00.0..0.0.000.0.0.0.0.0.0.0.0.0..00.0.0.0.0.0.0.0.0.0.0..00.0.0.0.0.0..00.0.0.0..00.0.0.0...00.0..00.00.0..0..100.0.0.0.0.0.0.0.0.0...00.0..0.." key="org.eclipse.jdt.uiformatter_page.preference_tree_expansion"/>
+	<item value="531" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.sash_form_left_width"/>
+	<item value="1244" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_width"/>
+	<item value="728" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_height"/>
+	<item value="93" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_x"/>
+	<item value="0" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_y"/>
+	<item value="40" key="org.eclipse.jdt.ui.codeformatter.line_wrapping_tab_page.preview_line_width"/>
+	<item value="0" key="org.eclipse.jdt.uiformatter_page.preference_scroll_position"/>
+	<item value="302" key="org.eclipse.jdt.uiformatter_page.last_focus_index"/>
+	<item value="672" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.sash_form_rigth_width"/>
+	<section name="NewPackageWizardPage">
+		<item value="false" key="create_package_info_java"/>
+	</section>
 	<section name="JavaElementSearchActions">
 	</section>
 </section>
