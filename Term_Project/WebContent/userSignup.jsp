@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,14 +6,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 <title>Bootstrap Simple Registration Form</title>
-<!-- Á¦ÀÌÄõ¸® ³Ö±â -->
+<!-- ì œì´ì¿¼ë¦¬ ë„£ê¸° -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!-- ÇÕÃÄÁö°í ÃÖ¼ÒÈ­µÈ ÃÖ½Å CSS -->
-<!-- ºÎÆ®½ºÆ®·¦ ³Ö±â -->
+<!-- í•©ì³ì§€ê³  ìµœì†Œí™”ëœ ìµœì‹  CSS -->
+<!-- ë¶€íŠ¸ìŠ¤íŠ¸ëž© ë„£ê¸° -->
 <link rel="stylesheet" href="./css/bootstrap.min.css">
-<!-- ºÎ°¡ÀûÀÎ Å×¸¶ -->
+<!-- ë¶€ê°€ì ì¸ í…Œë§ˆ -->
 <link rel="stylesheet" href="./css/bootstrap-theme.min.css">
-<!-- ÇÕÃÄÁö°í ÃÖ¼ÒÈ­µÈ ÃÖ½Å ÀÚ¹Ù½ºÅ©¸³Æ® -->
+<!-- í•©ì³ì§€ê³  ìµœì†Œí™”ëœ ìµœì‹  ìžë°”ìŠ¤í¬ë¦½íŠ¸ -->
 <script src="./js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="./css/userSignUp.css">
 
@@ -113,7 +113,7 @@
 			</div>        	
         </div>
         <div class="form-group">
-        	<input type="email" class="form-control" name="userId" placeholder="Email" required="required">
+        	<input type="email" class="form-control" name="userID" placeholder="Email" required="required">
         </div>
 		<div class="form-group">
             <input type="password" class="form-control" name="userPassword" placeholder="Password" required="required">

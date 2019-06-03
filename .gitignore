@@ -141,3 +141,6 @@ fabric.properties
 
 # Tomcat Server
 Servers/
+
+# SHA256 salt
+Term_Project/src/util/

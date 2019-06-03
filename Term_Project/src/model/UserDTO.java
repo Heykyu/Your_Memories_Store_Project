@@ -5,8 +5,16 @@ public class UserDTO {
 	private String userPassword;
 	private String userFirstName;
 	private String userSecondName;
+	private String userIDHash;
 	private boolean userEmailChecked;
 	
+	
+	public String getUserIDHash() {
+		return userIDHash;
+	}
+	public void setUserIDHash(String userIDHash) {
+		this.userIDHash = userIDHash;
+	}
 	public boolean isUserEmailChecked() {
 		return userEmailChecked;
 	}
@@ -34,9 +42,22 @@ public class UserDTO {
 	public String getUserSecondName() {
 		return userSecondName;
 	}
+	
 	public void setUserSecondName(String userSecondName) {
 		this.userSecondName = userSecondName;
 	}
 	
+	public UserDTO() {}
 	
+	
+	public UserDTO(String userID, String userPassword, String userFirstName, String userSecondName,
+			boolean userEmailChecked, String userIDHash) {
+		super();
+		this.userID = userID;
+		this.userPassword = userPassword;
+		this.userFirstName = userFirstName;
+		this.userSecondName = userSecondName;
+		this.userEmailChecked = userEmailChecked;
+		this.userIDHash = userIDHash;
+	}
 }

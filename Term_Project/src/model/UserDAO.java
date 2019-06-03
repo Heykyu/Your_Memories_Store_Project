@@ -7,19 +7,10 @@ import java.sql.ResultSet;
 import db.DatabaseUtil;
 
 public class UserDAO {
-	private static UserDAO instance;
 	
-	private UserDAO() {}
-	
-	public static UserDAO getInstance() {
-		if(instance == null) {
-			instance = new UserDAO();
-		}
-		return instance;
-	}
 	
 	public int insertMember(UserDTO user) {
-		String SQL = "insert into user value(?, ?, ?, ?, false)";
+		String SQL = "insert into user value(?, ?, ?, ?, ?, false)";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -32,8 +23,7 @@ public class UserDAO {
 			pstmt.setString(2, user.getUserPassword()); 
 			pstmt.setString(3, user.getUserFirstName()); 
 			pstmt.setString(4, user.getUserSecondName()); 
-			
-
+			pstmt.setString(5, user.getUserIDHash());
 			
 			
 			//delete update insert into 같은것은 executeUpdate()로 처리한다.
