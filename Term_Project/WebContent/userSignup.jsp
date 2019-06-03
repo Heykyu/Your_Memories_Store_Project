@@ -103,7 +103,7 @@
 		<!-- /.container-fluid -->
 	</nav>
 <div class="signup-form">
-    <form action="/examples/actions/confirmation.php" method="post">
+    <form action="./userLoginAction.jsp" method="post">
 		<h2>Register</h2>
 		<p class="hint-text">Create your account. It's free and only takes a minute.</p>
         <div class="form-group">
@@ -113,10 +113,10 @@
 			</div>        	
         </div>
         <div class="form-group">
-        	<input type="email" class="form-control" name="email" placeholder="Email" required="required">
+        	<input type="email" class="form-control" name="userId" placeholder="Email" required="required">
         </div>
 		<div class="form-group">
-            <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+            <input type="password" class="form-control" name="userPassword" placeholder="Password" required="required">
         </div>
 		<div class="form-group">
             <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
