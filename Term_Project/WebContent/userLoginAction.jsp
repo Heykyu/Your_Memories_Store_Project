@@ -37,7 +37,8 @@
 	} else if(result == -1) {
 		PrintWriter writer = response.getWriter();
 		writer.println("<script>");
-		writer.println("alert('회원가입 실패');");
+		writer.println("alert('이미 존재하는 아이디 입니다.');");
+		writer.println("history.back()");
 		writer.println("</script>");
 		writer.close();
 	}
