@@ -82,7 +82,7 @@ public class UserDAO {
 	}
 	
 	public boolean getUserEmailChecked(String userID) {
-		String SQL = "SELECT userCertification FROM USER where userID = ?";
+		String SQL = "SELECT userEmailChecked FROM USER where userID = ?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -140,7 +140,7 @@ public class UserDAO {
 	}
 	
 	public boolean setUserEmailChecked(String userID) {
-		String SQL = "UPDATE USER SET userCertification = true WHERE userID = ?";
+		String SQL = "UPDATE USER SET userEmailChecked = true WHERE userID = ?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
