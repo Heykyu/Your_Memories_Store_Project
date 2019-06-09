@@ -23,34 +23,21 @@
 	
 	UserDAO userDAO = new UserDAO();
 	
-	int result = userDAO.login(userID, userPassword);
+	int result = userDAO.insertMember(new UserDTO(userID, userPassword, userFirstName, userSecondName,
+			false, SHA256.getSHA256(userID)));
 	
 	if(result == 1) {
 		session.setAttribute("userID", userID);
 		PrintWriter writer = response.getWriter();
 		writer.println("<script>");
-		writer.println("location.href = 'home.jsp';");
+		writer.println("location.href = 'emailSendAction.jsp';");
 		writer.println("</script>");
 		writer.close();
 		return;
-	} else if(result == 0) {
+	} else if(result == -1) {
 		PrintWriter writer = response.getWriter();
 		writer.println("<script>");
-		writer.println("alert('비밀번호가 일치 하지 않습니다.');");
-		writer.println("history.back()");
-		writer.println("</script>");
-		writer.close();
-	}  else if(result == -1) {
-		PrintWriter writer = response.getWriter();
-		writer.println("<script>");
-		writer.println("alert('존재하지 않는 아이디 입니다. 계정을 만들어 주세요');");
-		writer.println("history.back()");
-		writer.println("</script>");
-		writer.close();
-	}  else if(result == -2) {
-		PrintWriter writer = response.getWriter();
-		writer.println("<script>");
-		writer.println("alert('데이테베이스 오류가 발생 하였습니다.');");
+		writer.println("alert('이미 존재하는 아이디 입니다.');");
 		writer.println("history.back()");
 		writer.println("</script>");
 		writer.close();

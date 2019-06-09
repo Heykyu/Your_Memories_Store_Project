@@ -103,7 +103,7 @@
 		<!-- /.container-fluid -->
 	</nav>
 <div class="signup-form">
-    <form action="./userLoginAction.jsp" method="post">
+    <form action="./userMake.jsp" method="post">
 		<h2>Register</h2>
 		<p class="hint-text">Create your account. It's free and only takes a minute.</p>
         <div class="form-group">
