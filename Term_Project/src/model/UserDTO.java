@@ -7,7 +7,7 @@ public class UserDTO {
 	private String userSecondName;
 	private String userIDHash;
 	private boolean userEmailChecked;
-	
+	private String userProfile;
 	
 	public String getUserIDHash() {
 		return userIDHash;
@@ -51,7 +51,7 @@ public class UserDTO {
 	
 	
 	public UserDTO(String userID, String userPassword, String userFirstName, String userSecondName,
-			boolean userEmailChecked, String userIDHash) {
+			boolean userEmailChecked, String userIDHash, String userProfile) {
 		super();
 		this.userID = userID;
 		this.userPassword = userPassword;
@@ -59,5 +59,12 @@ public class UserDTO {
 		this.userSecondName = userSecondName;
 		this.userEmailChecked = userEmailChecked;
 		this.userIDHash = userIDHash;
+		this.userProfile = userProfile;
+	}
+	public String getUserProfile() {
+		return userProfile;
+	}
+	public void setUserProfile(String userProfile) {
+		this.userProfile = userProfile;
 	}
 }

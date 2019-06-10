@@ -10,7 +10,7 @@ public class UserDAO {
 	
 	
 	public int insertMember(UserDTO user) {
-		String SQL = "insert into user value(?, ?, ?, ?, ?, false)";
+		String SQL = "insert into user value(?, ?, ?, ?, ?, false, ?)";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -24,7 +24,39 @@ public class UserDAO {
 			pstmt.setString(3, user.getUserFirstName()); 
 			pstmt.setString(4, user.getUserSecondName()); 
 			pstmt.setString(5, user.getUserIDHash());
+			pstmt.setString(6, user.getUserProfile());
 			
+			//delete update insert into 같은것은 executeUpdate()로 처리한다.
+			//반환 값은 데이터의 갯수를 반환
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+			return -1; //회원가입 실패
+		} finally {
+			//커넥션 객체 , 프리페얼 객체, 결과 객체는 한번 사용하면 자원 해제 해주는것이 좋다
+			
+			try { if( conn != null ) conn.close(); } catch(Exception e) { e.printStackTrace(); }
+			try { if( pstmt != null ) pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
+			try { if( rs != null ) rs.close(); } catch(Exception e) { e.printStackTrace(); }
+		}
+	}
+	
+	public int update(String userID, String userPassword, String userFirstName, String userSecondName) {
+		String SQL = "UPDATE USER SET userPassword = ? , userFirstName = ?, userSecondName = ? where userID = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			
+			//첫 번째 물음표 값에다 userID값을 넣어주는 것
+ 
+			pstmt.setString(1, userPassword); 
+			pstmt.setString(2, userFirstName); 
+			pstmt.setString(3, userSecondName); 
+			pstmt.setString(4, userID);
 			
 			//delete update insert into 같은것은 executeUpdate()로 처리한다.
 			//반환 값은 데이터의 갯수를 반환
@@ -163,5 +195,39 @@ public class UserDAO {
 			try { if( rs != null ) rs.close(); } catch(Exception e) { e.printStackTrace(); }
 		}
 		return false; //DB 오류
+	}
+	
+	public UserDTO getUser(String userID) {
+		UserDTO userDTO = new UserDTO();
+		String SQL = "SELECT * FROM user where userID = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			
+			//첫 번째 물음표 값에다 userID값을 넣어주는 것
+			pstmt.setString(1, userID); 
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				userDTO.setUserID(userID);
+				userDTO.setUserPassword(rs.getString("userPassword"));
+				userDTO.setUserFirstName(rs.getString("userFirstName"));
+				userDTO.setUserSecondName(rs.getString("userSecondName"));
+				userDTO.setUserProfile(rs.getString("userProfile"));
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs !=null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return userDTO;
 	}
 }

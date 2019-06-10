@@ -11,6 +11,7 @@
 	String userPassword = null;
 	String userFirstName = null;
 	String userSecondName = null;
+	String userProfile = null;
 	
 	if(request.getParameter("userID") != null)
 		userID = request.getParameter("userID");
@@ -24,7 +25,7 @@
 	UserDAO userDAO = new UserDAO();
 	
 	int result = userDAO.insertMember(new UserDTO(userID, userPassword, userFirstName, userSecondName,
-			false, SHA256.getSHA256(userID)));
+			false, SHA256.getSHA256(userID), userProfile));
 	
 	if(result == 1) {
 		session.setAttribute("userID", userID);
