@@ -1,3 +1,4 @@
+<%@page import="java.io.PrintWriter"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -20,6 +21,17 @@
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script src="./js/bootstrap.min.js"></script>
 </head>
+<%
+	if(session.getAttribute("userID") == null){
+		PrintWriter wripter = response.getWriter();
+		
+		wripter.println("<script>");
+		wripter.println("alert('로그인을 먼저 해주세요!');");
+		wripter.println("location.href='userLogin.jsp';");
+		wripter.println("</script>");
+		wripter.close();
+	}
+%>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
 		<div class="container-fluid">

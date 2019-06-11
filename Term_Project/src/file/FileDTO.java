@@ -1,6 +1,6 @@
 package file;
 
-import java.sql.Date;
+
 
 public class FileDTO {
 	private String fileName;

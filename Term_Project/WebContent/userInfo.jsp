@@ -15,6 +15,13 @@
 <link rel="stylesheet" href="./css/bootstrap-theme.min.css">
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script src="./js/bootstrap.min.js"></script>
+<%
+	String userID = null;
+
+	if(request.getParameter("userID") != null) {
+		userID = (String) request.getParameter("userID");
+	}
+%>
 <script type="text/javascript">
 function bs_input_file() {
 	$(".input-file").before(
@@ -45,10 +52,12 @@ function bs_input_file() {
 $(function() {
 	bs_input_file();
 });
+
 </script>
 <title>Insert title here</title>
 </head>
 <body>
+
 <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -129,14 +138,14 @@ $(function() {
 	<div class="container" style="margin-top: 60px;">
 <div class="col-md-8 col-md-offset-2">
     <h3>File Input</h3>
-<form method="POST" action="#" enctype="multipart/form-data">
+<form method="POST" action="./userInfoAction.jsp" enctype="multipart/form-data">
 	<!-- COMPONENT START -->
 	<div class="form-group">
 		<div class="input-group input-file">
 			<span class="input-group-btn">
         		<button class="btn btn-default btn-choose" type="button">Choose</button>
     		</span>
-    		<input type="text" class="form-control"  placeholder='Choose a file...' />
+    		<input type="text" class="form-control" name="fileName" placeholder='Choose a file...' />
     		<span class="input-group-btn">
        			 <button class="btn btn-warning btn-reset" type="button">Reset</button>
     		</span>
@@ -146,12 +155,12 @@ $(function() {
 	<div class="form-group">
 		<label for="email" class="col-sm-2 control-label">Comment</label>
 		<div class="col-sm-10">
-			<textarea class="form-control" rows="5" name="comment"></textarea>
+			<textarea class="form-control" rows="5" name="user_comment" id="photoComment"></textarea>
 		</div>
 	</div>
 	<!-- COMPONENT END -->
 	<div class="form-group">
-		<button type="submit" class="btn btn-primary pull-right" disabled>Submit</button>
+		<button type="submit" class="btn btn-primary pull-right">Submit</button>
 		<button type="reset" class="btn btn-danger">Reset</button>
 	</div>
 </form>

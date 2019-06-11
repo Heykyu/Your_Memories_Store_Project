@@ -16,7 +16,6 @@ INDEX VERSION 1.131+C:\Users\Taeseong\Desktop\JSP_TERM_PROJECT\.metadata\.plugin
 3996102163.index
 2229886263.index
 2263794123.index
-743339825.index
 2907473905.index
 3786865694.index
 3870858790.index
