@@ -79,9 +79,6 @@ public class FileDAO {
 			pstmt.setString(3, userID);
 			return pstmt.executeUpdate();
 			
-			 
-				
-				
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -95,8 +92,5 @@ public class FileDAO {
 			}
 		}
 		return -1;  //데이터베이스 오류
-	}
-	public FileDAO() {
-		
 	}
 }

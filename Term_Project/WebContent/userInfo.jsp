@@ -27,7 +27,7 @@ function bs_input_file() {
 	$(".input-file").before(
 		function() {
 			if ( ! $(this).prev().hasClass('input-ghost') ) {
-				var element = $("<input type='file' class='input-ghost'id='imgInput' style='visibility:hidden; height:0'>");
+				var element = $("<input type='file' class='input-ghost'id='imgInput' name='fileName' style='visibility:hidden; height:0'>");
 				element.attr("name",$(this).attr("name"));
 				element.change(function(){
 					element.next(element).find('input').val((element.val()).split('\\').pop());
@@ -155,7 +155,7 @@ $(function() {
 	<div class="form-group">
 		<label for="email" class="col-sm-2 control-label">Comment</label>
 		<div class="col-sm-10">
-			<textarea class="form-control" rows="5" name="user_comment" id="photoComment"></textarea>
+			<input class="form-control" type="text" name="comment" id="photoComment">
 		</div>
 	</div>
 	<!-- COMPONENT END -->
