@@ -20,7 +20,7 @@ function bs_input_file() {
 	$(".input-file").before(
 		function() {
 			if ( ! $(this).prev().hasClass('input-ghost') ) {
-				var element = $("<input type='file' class='input-ghost' style='visibility:hidden; height:0'>");
+				var element = $("<input type='file' class='input-ghost'id='imgInput' style='visibility:hidden; height:0'>");
 				element.attr("name",$(this).attr("name"));
 				element.change(function(){
 					element.next(element).find('input').val((element.val()).split('\\').pop());
@@ -136,7 +136,7 @@ $(function() {
 			<span class="input-group-btn">
         		<button class="btn btn-default btn-choose" type="button">Choose</button>
     		</span>
-    		<input type="text" class="form-control" placeholder='Choose a file...' />
+    		<input type="text" class="form-control"  placeholder='Choose a file...' />
     		<span class="input-group-btn">
        			 <button class="btn btn-warning btn-reset" type="button">Reset</button>
     		</span>

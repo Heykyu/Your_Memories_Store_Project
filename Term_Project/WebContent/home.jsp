@@ -15,6 +15,8 @@
 <!-- 부가적인 테마 -->
 <link rel="stylesheet" href="./css/bootstrap-theme.min.css">
 
+
+
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script src="./js/bootstrap.min.js"></script>
 </head>
@@ -92,5 +94,13 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
+	<section class="jumbotron text-center">
+		<div class="container">
+			<h2 class="jumbotron-heading"><%= session.getAttribute("userSecondName") %> <%= session.getAttribute("userFirstName") %></h2>
+			<p class="lead text-muted"><%= session.getAttribute("userID") %></p>
+		</div>
+	</section>
+	
+	
 </body>
 </html>

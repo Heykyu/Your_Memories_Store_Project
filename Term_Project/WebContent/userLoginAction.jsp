@@ -25,8 +25,12 @@
 	
 	int result = userDAO.login(userID, userPassword);
 	
+	UserDTO userInfo = userDAO.getUser(userID);
+	
 	if(result == 1) {
 		session.setAttribute("userID", userID);
+		session.setAttribute("userFirstName", userInfo.getUserFirstName());
+		session.setAttribute("userSecondName", userInfo.getUserSecondName());
 		PrintWriter writer = response.getWriter();
 		writer.println("<script>");
 		writer.println("location.href = 'home.jsp';");

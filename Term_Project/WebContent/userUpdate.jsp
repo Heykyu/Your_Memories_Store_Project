@@ -69,7 +69,7 @@
 				</form>
 				<ul class="nav navbar-nav">
 					<li>
-						<a href="index.html">HOME</a>
+						<a href="home.jsp">HOME</a>
 					</li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -135,8 +135,17 @@
         
         <div class="form-group">
         	<%= user.getUserID() %>
+        	
         	<input type="hidden" class="form-control" name="userID" value="<%= user.getUserID() %>">
         </div>
+        <div class="form-group">
+			<div class="input-group input-file">
+				<span class="input-group-btn">
+        			<button class="btn btn-default btn-choose" type="button">Profile Choose</button>
+    			</span>
+    			<input type="text" class="form-control" disabled placeholder='Choose a file...' />
+			</div>
+		</div>
 		<div class="form-group">
             <input type="password" class="form-control" name="userPassword" placeholder="Password" required="required">
         </div>
@@ -155,5 +164,36 @@
     </form>
 	<div class="text-center">Already have an account? <a href="userLogin.jsp">Sign in</a></div>
 </div>
+<script type="text/javascript">
+function bs_input_file() {
+	$(".input-file").before(
+		function() {
+			if ( ! $(this).prev().hasClass('input-ghost') ) {
+				var element = $("<input type='file' class='input-ghost'id='imgInput' style='visibility:hidden; height:0'>");
+				element.attr("name",$(this).attr("name"));
+				element.change(function(){
+					element.next(element).find('input').val((element.val()).split('\\').pop());
+				});
+				$(this).find("button.btn-choose").click(function(){
+					element.click();
+				});
+				$(this).find("button.btn-reset").click(function(){
+					element.val(null);
+					$(this).parents(".input-file").find('input').val('');
+				});
+				$(this).find('input').css("cursor","pointer");
+				$(this).find('input').mousedown(function() {
+					$(this).parents('.input-file').prev().click();
+					return false;
+				});
+				return element;
+			}
+		}
+	);
+}
+$(function() {
+	bs_input_file();
+});
+</script>
 </body>
 </html>                            
