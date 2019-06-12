@@ -63,20 +63,22 @@ public class FileDAO {
 		return photoList;  //리스트 반환
 	}
 	
-	public int upload(String userID, String fileName, String pictureComment) {
+	public int upload(FileDTO fileDTO) {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String SQL = "INSERT INTO FILE VALUE (?, ?, ?, NOW(), NULL)";
+		String SQL = "INSERT INTO FILE VALUE (?, ?, ?, NOW(), NULL, ?)";
 		try {
 			conn = DatabaseUtil.getConnection();
 			pstmt = conn.prepareStatement(SQL);
 			
-			pstmt.setString(1, fileName);
-			pstmt.setString(2, pictureComment);
-			pstmt.setString(3, userID);
+			pstmt.setString(1, fileDTO.getFileName());
+			pstmt.setString(2, fileDTO.getComment());
+			pstmt.setString(3, fileDTO.getUserID());
+			pstmt.setInt(4, fileDTO.getLikeCount());
+			
 			return pstmt.executeUpdate();
 			
 			

@@ -3,11 +3,19 @@ package file;
 
 public class FileDTO {
 	private String fileName;
-	private String fileRealName;
 	private String comment;
 	private int pictureID;
 	private String fileUploadDate;
 	private String userID;
+	private int likeCount;
+	
+	public void setLikeCount(int likeCount) {
+		this.likeCount = likeCount;
+	}
+	
+	public int getLikeCount() {
+		return likeCount;
+	}
 	
 	public String getComment() {
 		return comment;
@@ -47,11 +55,21 @@ public class FileDTO {
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
-	public String getFileRealName() {
-		return fileRealName;
-	}
-	public void setFileRealName(String fileRealName) {
-		this.fileRealName = fileRealName;
+	
+
+	public FileDTO() {
 	}
 
+	public FileDTO(String fileName, String comment, int pictureID, String fileUploadDate,
+			String userID, int likeCount) {
+		super();
+		this.fileName = fileName;
+		this.comment = comment;
+		this.pictureID = pictureID;
+		this.fileUploadDate = fileUploadDate;
+		this.userID = userID;
+		this.likeCount = likeCount;
+	}
+	
+	
 }

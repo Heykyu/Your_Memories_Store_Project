@@ -19,8 +19,7 @@
 	String encoding = "UTF-8";
 	
 	if(isMulti) {
-		MultipartRequest multi = new MultipartRequest(request, directory, maxSize, encoding, 
-				new DefaultFileRenamePolicy());
+		MultipartRequest multi = new MultipartRequest(request, directory, maxSize, encoding);
 		
 		String userID = multi.getParameter("userID");
 		String userPassword = multi.getParameter("userPassword");

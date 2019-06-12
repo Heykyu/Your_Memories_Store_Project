@@ -119,6 +119,32 @@
 		</div>
 	</section>
 	
+	<div class="row">
+		<div class="col-xs-6 col-lg-4">
+			<h2>User Name</h2>
+			<img alt="그림 없음" src="./images/icon.png" style="max-width: 50%; height: 100px;">
+			<p><a class="btn btn-default" href="#" role="button">View Detail</a></p>
+		</div>
+		
+		<div class="col-xs-6 col-lg-4">
+			<h2>User Name</h2>
+			<img alt="그림 없음" src="./images/icon.png" style="max-width: 50%; height: 100px;">
+			<p><a class="btn btn-default" href="#" role="button">View Detail</a></p>
+		</div>
+		
+		<div class="col-xs-6 col-lg-4">
+			<h2>User Name</h2>
+			<img alt="그림 없음" src="./images/icon.png" style="max-width: 50%; height: 100px;">
+			<p><a class="btn btn-default" href="#" role="button">View Detail</a></p>
+		</div>
+		
+		<div class="col-xs-6 col-lg-4">
+			<h2>User Name</h2>
+			<img alt="그림 없음" src="./images/icon.png" style="max-width: 50%; height: 100px;">
+			<p><a class="btn btn-default" href="#" role="button">View Detail</a></p>
+		</div>
+	</div>
+	
 	
 </body>
 </html>

@@ -33,7 +33,11 @@
 		try {
 			FileDAO fileDAO = new FileDAO();
 			
-			int result = fileDAO.upload(userID, fileName, comment);
+			System.out.println("Filename ->" + fileName);
+			System.out.println("Comment ->" + comment);
+			System.out.println("userID ->" + userID);
+			
+			int result = fileDAO.upload(new FileDTO(fileName, comment, 0, null, userID, 0));
 			
 			if(result == 1) {
 				PrintWriter writer = response.getWriter();
