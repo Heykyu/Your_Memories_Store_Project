@@ -1,6 +1,8 @@
 <%@page import="java.io.PrintWriter"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ page import="model.UserDAO" %>
+<%@ page import="model.UserDTO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,6 +33,9 @@
 		wripter.println("</script>");
 		wripter.close();
 	}
+
+	UserDTO userDAO = new UserDAO().getUser((String)session.getAttribute("userID"));
+	UserDAO userProfile = new UserDAO();
 %>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
@@ -108,8 +113,9 @@
 	</nav>
 	<section class="jumbotron text-center">
 		<div class="container">
-			<h2 class="jumbotron-heading"><%= session.getAttribute("userSecondName") %> <%= session.getAttribute("userFirstName") %></h2>
-			<p class="lead text-muted"><%= session.getAttribute("userID") %></p>
+		<img src=<%= userProfile.getProfile((String) session.getAttribute("userID"))%> alt="Avatar" style="max-width: 100%; height: 400px;">
+			<h2 class="jumbotron-heading"><%= userDAO.getUserSecondName() %> <%= userDAO.getUserFirstName() %></h2>
+			<p class="lead text-muted"><%=session.getAttribute("userID") %></p>
 		</div>
 	</section>
 	

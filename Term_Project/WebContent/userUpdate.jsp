@@ -129,7 +129,7 @@
 		<!-- /.container-fluid -->
 	</nav>
 <div class="signup-form">
-    <form action="./userUpdateAction.jsp" method="post">
+    <form action="./userUpdateAction.jsp" method="post" enctype="multipart/form-data">
 		<h2>Modify</h2>
 		<p class="hint-text">Modify your account. It's free and only takes a minute.</p>
         
@@ -143,7 +143,7 @@
 				<span class="input-group-btn">
         			<button class="btn btn-default btn-choose" type="button">Profile Choose</button>
     			</span>
-    			<input type="text" class="form-control" disabled placeholder='Choose a file...' />
+    			<input type="text" class="form-control" name="userProfile" disabled placeholder='Choose a file...' />
 			</div>
 		</div>
 		<div class="form-group">
@@ -169,7 +169,7 @@ function bs_input_file() {
 	$(".input-file").before(
 		function() {
 			if ( ! $(this).prev().hasClass('input-ghost') ) {
-				var element = $("<input type='file' class='input-ghost'id='imgInput' style='visibility:hidden; height:0'>");
+				var element = $("<input type='file' class='input-ghost'id='imgInput' name='userProfile' style='visibility:hidden; height:0'>");
 				element.attr("name",$(this).attr("name"));
 				element.change(function(){
 					element.next(element).find('input').val((element.val()).split('\\').pop());

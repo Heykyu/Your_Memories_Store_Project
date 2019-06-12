@@ -42,8 +42,9 @@ public class UserDAO {
 		}
 	}
 	
-	public int update(String userID, String userPassword, String userFirstName, String userSecondName) {
-		String SQL = "UPDATE USER SET userPassword = ? , userFirstName = ?, userSecondName = ? where userID = ?";
+	public int update(String userID, String userPassword, String userFirstName, 
+			String userSecondName, String userProfile) {
+		String SQL = "UPDATE USER SET userPassword = ? , userFirstName = ?, userSecondName = ?, userProfile = ? where userID = ?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -56,7 +57,8 @@ public class UserDAO {
 			pstmt.setString(1, userPassword); 
 			pstmt.setString(2, userFirstName); 
 			pstmt.setString(3, userSecondName); 
-			pstmt.setString(4, userID);
+			pstmt.setString(4, userProfile);
+			pstmt.setString(5, userID);
 			
 			//delete update insert into 같은것은 executeUpdate()로 처리한다.
 			//반환 값은 데이터의 갯수를 반환
@@ -229,5 +231,38 @@ public class UserDAO {
 			}
 		}
 		return userDTO;
+	}
+	
+	public String getProfile(String userID) {
+		UserDTO userDTO = new UserDTO();
+		String SQL = "SELECT userProfile FROM user where userID = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			
+			//첫 번째 물음표 값에다 userID값을 넣어주는 것
+			pstmt.setString(1, userID); 
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				if(rs.getString("userProfile").equals(null)) {
+					return "http://localhost:8080/Term_Project/images/icon.png";
+				}
+				return "http://localhost:8080/Term_Project/profile/" + rs.getString("userProfile");
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs !=null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return "http://localhost:8080/Term_Project/images/icon.png";
 	}
 }
