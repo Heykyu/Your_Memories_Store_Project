@@ -234,7 +234,7 @@ public class UserDAO {
 	}
 	
 	public String getProfile(String userID) {
-		UserDTO userDTO = new UserDTO();
+		
 		String SQL = "SELECT userProfile FROM user where userID = ?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;

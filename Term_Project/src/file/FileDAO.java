@@ -10,21 +10,18 @@ import db.DatabaseUtil;
 public class FileDAO {
 	
 	
-	public ArrayList<FileDTO> getPhotoListById(String userID, String fileName, String pictureID) {
+	public ArrayList<FileDTO> getPhotoListById() {
 		ArrayList<FileDTO> photoList = null;
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String SQL = "SELECT * from file where userID = ? AND fileName = ? AND pictureID > ? ORDER BY fileUploadDate";
+		String SQL = "SELECT * from file  ORDER BY fileUploadDate";
 		try {
 			conn = DatabaseUtil.getConnection();
 			pstmt = conn.prepareStatement(SQL);
 			
-			pstmt.setString(1, userID);
-			pstmt.setString(2, fileName);
-			pstmt.setInt(3, Integer.parseInt(pictureID));
 			
 			rs = pstmt.executeQuery();
 			
@@ -33,10 +30,11 @@ public class FileDAO {
 			while(rs.next()) {
 				FileDTO file = new FileDTO();
 				file.setPictureID(rs.getInt("pictureID"));
-				file.setFileName(rs.getString("fileName").replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>"));
+				file.setFileName("http://localhost:8080/Term_Project/upload/"+rs.getString("fileName").replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>"));
 				file.setUserID(rs.getString("userID"));			
 				file.setComment(rs.getString("comment").replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>"));
 				int uploadTime = Integer.parseInt(rs.getString("fileUploadDate").substring(11, 13));
+				file.setLikeCount(rs.getInt("likeCount"));
 				
 				String timeType = "¿ÀÀü";
 				

@@ -1,8 +1,12 @@
+<%@page import="file.FileDAO"%>
 <%@page import="java.io.PrintWriter"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@ page import="model.UserDAO" %>
 <%@ page import="model.UserDTO" %>
+<%@ page import="file.FileDAO" %>
+<%@ page import="file.FileDTO" %>
+<%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +28,9 @@
 <script src="./js/bootstrap.min.js"></script>
 </head>
 <%
+	ArrayList<FileDTO> fileList = new ArrayList<FileDTO>();
+
+
 	if(session.getAttribute("userID") == null){
 		PrintWriter wripter = response.getWriter();
 		
@@ -119,32 +126,27 @@
 		</div>
 	</section>
 	
-	<div class="row">
-		<div class="col-xs-6 col-lg-4">
-			<h2>User Name</h2>
-			<img alt="그림 없음" src="./images/icon.png" style="max-width: 50%; height: 100px;">
-			<p><a class="btn btn-default" href="#" role="button">View Detail</a></p>
-		</div>
-		
-		<div class="col-xs-6 col-lg-4">
-			<h2>User Name</h2>
-			<img alt="그림 없음" src="./images/icon.png" style="max-width: 50%; height: 100px;">
-			<p><a class="btn btn-default" href="#" role="button">View Detail</a></p>
-		</div>
-		
-		<div class="col-xs-6 col-lg-4">
-			<h2>User Name</h2>
-			<img alt="그림 없음" src="./images/icon.png" style="max-width: 50%; height: 100px;">
-			<p><a class="btn btn-default" href="#" role="button">View Detail</a></p>
-		</div>
-		
-		<div class="col-xs-6 col-lg-4">
-			<h2>User Name</h2>
-			<img alt="그림 없음" src="./images/icon.png" style="max-width: 50%; height: 100px;">
-			<p><a class="btn btn-default" href="#" role="button">View Detail</a></p>
-		</div>
-	</div>
 	
+	<div class="row">
+		<%
+			fileList = new FileDAO().getPhotoListById();
+				
+				if(fileList != null) 
+					for(int i = 0; i < fileList.size(); i++) {
+						FileDTO fileDTO = fileList.get(i);
+					
+		%>
+		<div class="col-xs-6 col-lg-4">
+			<h3><%= fileDTO.getUserID() %></h3>
+			<img alt="그림 없음" src=<%= fileDTO.getFileName() %> style="max-width: 80%; height: 200px; margin-bottom: 10px;">
+			<p><a class="btn btn-default" href="#" role="button">View Detail</a></p>
+		</div>
+		
+		<%
+					}
+				
+		%>
+	</div>
 	
 </body>
 </html>

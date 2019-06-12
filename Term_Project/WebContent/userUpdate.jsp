@@ -78,21 +78,14 @@
 						</a>
 						<ul class="dropdown-menu" role="menu">
 							<li>
-								<a href="#">UserInfo</a>
+								<a href="./userInfo.jsp">사진 올리기</a>
 							</li>
 							<li>
-								<a href="#">Another action</a>
-							</li>
-							<li>
-								<a href="#">Something else here</a>
+								<a href="userUpdate.jsp">Edit profile</a>
 							</li>
 							<li class="divider"></li>
 							<li>
-								<a href="#">Log-out</a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a href="#">One more separated link</a>
+								<a href="./userLogout.jsp">Log-out</a>
 							</li>
 						</ul>
 					</li>
