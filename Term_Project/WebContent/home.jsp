@@ -19,10 +19,10 @@
 <!-- 이미지 hover -->
 <link rel="stylesheet" href="./css/homeImageHover.css">
 
+
+
 <!-- 좋아요 모양 -->
-<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <!-- 부트스트랩 넣기 -->
 <link rel="stylesheet" href="./css/bootstrap.min.css">
