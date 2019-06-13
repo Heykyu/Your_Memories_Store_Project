@@ -15,6 +15,14 @@
 <!-- 제이쿼리 넣기 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+
+<!-- 이미지 hover -->
+<link rel="stylesheet" href="./css/homeImageHover.css">
+
+<!-- 좋아요 모양 -->
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <!-- 부트스트랩 넣기 -->
 <link rel="stylesheet" href="./css/bootstrap.min.css">
@@ -127,7 +135,7 @@
 	</section>
 	
 	
-	<div class="row">
+	<div class="containerImg" id="containerImgBox">
 		<%
 			fileList = new FileDAO().getPhotoListById();
 				
@@ -136,11 +144,20 @@
 						FileDTO fileDTO = fileList.get(i);
 					
 		%>
-		<div class="col-xs-6 col-lg-4">
-			<h3><%= fileDTO.getUserID() %></h3>
-			<img alt="그림 없음" src=<%= fileDTO.getFileName() %> style="max-width: 80%; height: 200px; margin-bottom: 10px;">
-			<p><a class="btn btn-default" href="#" role="button">View Detail</a></p>
-		</div>
+		
+		
+			<div class="box">
+				<div class="imgBox">
+					<img src=<%= fileDTO.getFileName() %>>
+				</div>
+				<div class="details">
+					<div class="content">
+						<h2><%= fileDTO.getUserID() %></h2>
+						<p><%= fileDTO.getComment() %></p>
+					</div>
+				</div>
+			</div>
+		
 		
 		<%
 					}
