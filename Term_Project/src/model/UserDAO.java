@@ -32,7 +32,7 @@ public class UserDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 			
-			return -1; //회원가입 실패
+			
 		} finally {
 			//커넥션 객체 , 프리페얼 객체, 결과 객체는 한번 사용하면 자원 해제 해주는것이 좋다
 			
@@ -40,6 +40,7 @@ public class UserDAO {
 			try { if( pstmt != null ) pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
 			try { if( rs != null ) rs.close(); } catch(Exception e) { e.printStackTrace(); }
 		}
+		return -1; //회원가입 실패
 	}
 	
 	public int update(String userID, String userPassword, String userFirstName, 

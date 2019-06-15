@@ -93,4 +93,85 @@ public class FileDAO {
 		}
 		return -1;  //데이터베이스 오류
 	}
+	
+	public int like(int pictureID) {
+		String SQL = "UPDATE FILE SET likeCount = likeCount + 1 WHERE pictureID = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			
+			//첫 번째 물음표 값에다 userID값을 넣어주는 것
+			pstmt.setInt(1, pictureID); 
+			
+			
+			return pstmt.executeUpdate(); //이미 인증이 된 상태라도 다시 한번 더 트루를 줘야 인증 유지 가능
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			//커넥션 객체 , 프리페얼 객체, 결과 객체는 한번 사용하면 자원 해제 해주는것이 좋다
+			
+			try { if( conn != null ) conn.close(); } catch(Exception e) { e.printStackTrace(); }
+			try { if( pstmt != null ) pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
+			try { if( rs != null ) rs.close(); } catch(Exception e) { e.printStackTrace(); }
+		}
+		return -1; //DB 오류
+	}
+	
+	public int delete(String pictureID) {
+		String SQL = "DELETE FROM FILE WHERE pictureID = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			
+			//첫 번째 물음표 값에다 userID값을 넣어주는 것
+			pstmt.setInt(1, Integer.parseInt(pictureID));
+			
+			
+			return pstmt.executeUpdate(); //이미 인증이 된 상태라도 다시 한번 더 트루를 줘야 인증 유지 가능
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			//커넥션 객체 , 프리페얼 객체, 결과 객체는 한번 사용하면 자원 해제 해주는것이 좋다
+			
+			try { if( conn != null ) conn.close(); } catch(Exception e) { e.printStackTrace(); }
+			try { if( pstmt != null ) pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
+			try { if( rs != null ) rs.close(); } catch(Exception e) { e.printStackTrace(); }
+		}
+		return -1; //DB 오류
+	}
+	
+	public String getUserID(String pictureID) {
+		String SQL = "SELECT userID FROM FILE WHERE pictureID = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			
+			//첫 번째 물음표 값에다 userID값을 넣어주는 것
+			pstmt.setInt(1, Integer.parseInt(pictureID));
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next())
+				return rs.getString(1);
+			 //이미 인증이 된 상태라도 다시 한번 더 트루를 줘야 인증 유지 가능
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			//커넥션 객체 , 프리페얼 객체, 결과 객체는 한번 사용하면 자원 해제 해주는것이 좋다
+			
+			try { if( conn != null ) conn.close(); } catch(Exception e) { e.printStackTrace(); }
+			try { if( pstmt != null ) pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
+			try { if( rs != null ) rs.close(); } catch(Exception e) { e.printStackTrace(); }
+		}
+		return null; //DB 오류
+	}
 }

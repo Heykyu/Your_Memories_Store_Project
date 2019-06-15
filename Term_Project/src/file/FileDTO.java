@@ -2,6 +2,7 @@ package file;
 
 
 public class FileDTO {
+	
 	private String fileName;
 	private String comment;
 	private int pictureID;

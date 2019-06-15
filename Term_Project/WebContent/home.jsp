@@ -201,18 +201,25 @@
 				</div>
 				<span><%=fileDTO.getComment() %></span>
 				<p>추천 수 <%=fileDTO.getLikeCount() %></p>
-				<form action="#">
+				<form action="./deleteAction.jsp?pictureID=<%= fileDTO.getPictureID()%>" method="POST">
 					<div class="form-row">
 						<div class="form-group col-sm-6">
-							<button type="reset" class="btn btn-danger">삭제</button>
+							<button type="submit" class="btn btn-danger">삭제</button>
+
+						</div>
+					</div>
+				</form>
+				
+				<form action="./likeAction.jsp?pictureID=<%= fileDTO.getPictureID()%>" method="POST">
+					<div class="form-row">
+						<div class="form-group col-sm-6">
 							<button type="submit" class="btn btn-primary pull-right">추천</button>
 						</div>
 					</div>
 				</form>
+
+				</div>
 			</div>
-			</div>
-			
-			
 		</div>
 		
 		<%
