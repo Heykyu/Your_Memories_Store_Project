@@ -18,11 +18,12 @@
 
 <!-- 이미지 hover -->
 <link rel="stylesheet" href="./css/homeImageHover.css">
+<link rel="stylesheet" href="./css/homeModal.css">
 
 
 
 <!-- 좋아요 모양 -->
-
+	
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <!-- 부트스트랩 넣기 -->
 <link rel="stylesheet" href="./css/bootstrap.min.css">
@@ -34,6 +35,8 @@
 
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script src="./js/bootstrap.min.js"></script>
+
+
 </head>
 <%
 	ArrayList<FileDTO> fileList = new ArrayList<FileDTO>();
@@ -148,14 +151,18 @@
 		
 			<div class="box">
 				<div class="imgBox">
-					<img src=<%= fileDTO.getFileName() %>>
+					<img src=<%= fileDTO.getFileName() %> name="myImg">
 				</div>
+				
+				
+				
 				<div class="details">
 					<div class="content">
 						<h2><%= fileDTO.getUserID() %></h2>
 						<p><%= fileDTO.getComment() %></p>
 					</div>
 				</div>
+				
 			</div>
 		
 		
@@ -163,7 +170,79 @@
 					}
 				
 		%>
-	</div>
+		
+		<%
+			if(fileList.isEmpty()) {
+		%>
+		<div class="alert alert-success" role="alert" style="text-align: center;">
+			<strong>여기에 사진이 올라 옵니다! </strong> 사진을 올려 여러 사람들과 공유 해보세요.
+		</div>
+		<% } %>
+		
+		<%
+			
+				
+				if(fileList != null) 
+					for(int i = 0; i < fileList.size(); i++) {
+						FileDTO fileDTO = fileList.get(i);
+					
+		%>
+		
+		<div id="myModal" class="modal">
+			<span class="close">&times;</span>
+			
+			<img class="modal-content" id="img01" style="width: 70%; height: 70%;">
+			
+			<div id="caption">
+				<div>
+					<img alt="profileImg" src=<%=userProfile.getProfile(fileDTO.getUserID()) %>
+					style="height: 8%; width: 8%;">
+					<span><%=fileDTO.getUserID() %></span>
+				</div>
+				<span><%=fileDTO.getComment() %></span>
+				<p>추천 수 <%=fileDTO.getLikeCount() %></p>
+				<form action="#">
+					<div class="form-row">
+						<div class="form-group col-sm-6">
+							<button type="reset" class="btn btn-danger">삭제</button>
+							<button type="submit" class="btn btn-primary pull-right">추천</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			</div>
+			
+			
+		</div>
+		
+		<%
+					}
+		%>
+	
+	
 	
 </body>
+<script type="text/javascript">
+	var modal = document.getElementById("myModal");
+	
+	var img = document.getElementsByName("myImg");
+	var modalImg = document.getElementById("img01");
+	var captionText = document.getElementById("caption");
+	
+	
+	for(var i = 0; i < img.length; i++) {
+		img[i].onclick = function() {
+			modal.style.display = "block";
+			modalImg.src = this.src;
+			captionText.innerHtml = this.alt;
+	
+		}
+	}
+	
+	var span = document.getElementsByClassName("close")[0];
+	
+	span.onclick = function() {
+		modal.style.display = "none";
+	}
+</script>
 </html>

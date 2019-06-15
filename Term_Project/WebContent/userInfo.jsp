@@ -104,9 +104,6 @@ $(function() {
 					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li>
-						<a href="userLogin.jsp">LOGIN</a>
-					</li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
 							SETTING
@@ -152,14 +149,14 @@ $(function() {
 		</div>
 	</div>
 	
-	<div class="form-group">
+	<div class="form-group" style="padding-top: 15px;">
 		<label for="email" class="col-sm-2 control-label">Comment</label>
 		<div class="col-sm-10">
 			<input class="form-control" type="text" name="comment" id="photoComment">
 		</div>
 	</div>
 	<!-- COMPONENT END -->
-	<div class="form-group">
+	<div class="form-group" style="padding-top: 15px;">
 		<button type="submit" class="btn btn-primary pull-right">Submit</button>
 		<button type="reset" class="btn btn-danger">Reset</button>
 	</div>
