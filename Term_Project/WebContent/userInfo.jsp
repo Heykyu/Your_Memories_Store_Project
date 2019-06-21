@@ -1,19 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 <title>Bootstrap Simple Registration Form</title>
-<!-- Á¦ÀÌÄõ¸® ³Ö±â -->
+<!-- ì œì´ì¿¼ë¦¬ ë„£ê¸° -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!-- ÇÕÃÄÁö°í ÃÖ¼ÒÈ­µÈ ÃÖ½Å CSS -->
-<!-- ºÎÆ®½ºÆ®·¦ ³Ö±â -->
+<!-- í•©ì³ì§€ê³  ìµœì†Œí™”ëœ ìµœì‹  CSS -->
+<!-- ë¶€íŠ¸ìŠ¤íŠ¸ëž© ë„£ê¸° -->
 <link rel="stylesheet" href="./css/bootstrap.min.css">
-<!-- ºÎ°¡ÀûÀÎ Å×¸¶ -->
+<!-- ë¶€ê°€ì ì¸ í…Œë§ˆ -->
 <link rel="stylesheet" href="./css/bootstrap-theme.min.css">
-<!-- ÇÕÃÄÁö°í ÃÖ¼ÒÈ­µÈ ÃÖ½Å ÀÚ¹Ù½ºÅ©¸³Æ® -->
+<!-- í•©ì³ì§€ê³  ìµœì†Œí™”ëœ ìµœì‹  ìžë°”ìŠ¤í¬ë¦½íŠ¸ -->
 <script src="./js/bootstrap.min.js"></script>
 <%
 	String userID = null;
@@ -91,7 +91,7 @@ $(function() {
 						</a>
 						<ul class="dropdown-menu" role="menu">
 							<li>
-								<a href="./userInfo.jsp">»çÁø ¿Ã¸®±â</a>
+								<a href="./userInfo.jsp">ì‚¬ì§„ ì˜¬ë¦¬ê¸°</a>
 							</li>
 							<li>
 								<a href="./userUpdate.jsp">Edit profile</a>
