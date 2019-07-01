@@ -15,14 +15,14 @@
 
 - LOGIN
 
-![LOGIN](./img/login.png)
+![LOGIN](img/login.png)
 
 - Sign-Up
 
-![Sign-UP](./img/sign-up.png)
+![Sign-UP](img/sign-up.png)
 
 - Main Page
 
-![Main_Page](./img/main.png)
+![Main_Page](img/main.png)
 
-![Have_IMG](./img/have_image.png)
+![Have_IMG](img/have_image.png)
